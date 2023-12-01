@@ -1,0 +1,66 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "admin@example.com",
+            "password": "admin123",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "email": "user1@example.com",
+            "password": "user123",
+            "role": "user"
+        },
+        {
+            "id": 3,
+            "email": "user2@example.com",
+            "password": "user456",
+            "role": "user"
+        }
+    ],
+    "vehicles": [
+        {
+            "id": 1,
+            "name": "Toyota Corolla",
+            "brand": "Toyota",
+            "model": "Corolla",
+            "photos": [
+                "corolla_1.jpg",
+                "corolla_2.jpg"
+            ],
+            "year": 2022,
+            "available": true,
+            "pricePerDay": 150
+        },
+        {
+            "id": 2,
+            "name": "Honda Civic",
+            "brand": "Honda",
+            "model": "Civic",
+            "photos": [
+                "civic_1.jpg",
+                "civic_2.jpg"
+            ],
+            "year": 2021,
+            "available": true,
+            "pricePerDay": 180
+        }
+    ],
+    "reservations": [
+        {
+            "id": 1,
+            "userId": 2,
+            "vehicleId": 1,
+            "startDate": "2023-01-01",
+            "endDate": "2023-01-05"
+        },
+        {
+            "id": 2,
+            "userId": 3,
+            "vehicleId": 2,
+            "startDate": "2023-02-15",
+            "endDate": "2023-02-20"
+        }
+    ]
+}

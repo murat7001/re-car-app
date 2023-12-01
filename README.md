@@ -2,16 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
-
+First, download the necessary things:
+```bash
+npm install
+```
+```bash
+npm install -g json-server
+```
+Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+```bash
+json-server --watch db.json --port 3001
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
