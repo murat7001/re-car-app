@@ -14,7 +14,6 @@ const Home = () => {
 
 
     useEffect(() => {
-        console.log('Dispatching fetchCars');
         dispatch(fetchCars());
     }, [dispatch]);
     return (

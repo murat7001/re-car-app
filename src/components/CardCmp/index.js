@@ -11,10 +11,13 @@ import Link from 'next/link';
 import { Button } from '@mui/material';
 
 export default function CardCmp({ car, showButton = true }) {
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader title={car.name} />
-            <CardMedia component="img" height="194" image={car.photos[0]} alt="Paella dish" />
+            {car.photos &&  (
+                <CardMedia component="img" height="194" image={car.photos[0]} alt="Car" />
+            )}
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {car.fuelType}
