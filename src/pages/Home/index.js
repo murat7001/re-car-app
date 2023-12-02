@@ -1,23 +1,22 @@
 import CardCmp from "@/components/CardCmp";
 import Navbar from "@/components/Navbar";
+import { fetchCars } from "@/store/CarSlice/carSlice";
 import {
     Grid,
     Stack,
 } from '@mui/material';
 import { useEffect, useState } from "react";
-import { fetchCars } from "../api/api";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
-    const [cars, setCars] = useState([]);
+    const dispatch = useDispatch();
+    const { cars } = useSelector((state) => state.cars);
 
-    const getCars = async () => {
-        const cars = await fetchCars();
-        setCars(cars);
-    };
 
     useEffect(() => {
-        getCars();
-    }, []);
+        console.log('Dispatching fetchCars');
+        dispatch(fetchCars());
+    }, [dispatch]);
     return (
         <div>
             <Navbar></Navbar>
