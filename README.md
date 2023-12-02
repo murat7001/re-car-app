@@ -18,3 +18,9 @@ json-server --watch db.json --port 3001
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Used Tools
+- Material UI
+- Antd
+- db.json
+- Axios

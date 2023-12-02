@@ -6,7 +6,7 @@ dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 const dateFormat = 'YYYY/MM/DD';
 
-const App = () => {
+const DateRange = () => {
   const [dateRange, setDateRange] = useState([
     dayjs(),
     null
@@ -28,4 +28,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default DateRange;

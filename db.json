@@ -26,12 +26,12 @@
             "brand": "Toyota",
             "model": "Corolla",
             "photos": [
-                "corolla_1.jpg",
-                "corolla_2.jpg"
+                "https://picsum.photos/200/300"
             ],
             "year": 2022,
-            "available": true,
-            "pricePerDay": 150
+            "pricePerDay": 150,
+            "fuelType": "Hybrid",
+            "transmissionType": "Otomatik"
         },
         {
             "id": 2,
@@ -39,12 +39,64 @@
             "brand": "Honda",
             "model": "Civic",
             "photos": [
-                "civic_1.jpg",
-                "civic_2.jpg"
+                "https://picsum.photos/200/300"
             ],
             "year": 2021,
-            "available": true,
-            "pricePerDay": 180
+            "pricePerDay": 180,
+            "fuelType": "Benzin",
+            "transmissionType": "Manuel"
+        },
+        {
+            "id": 3,
+            "name": "Ford Focus",
+            "brand": "Ford",
+            "model": "Focus",
+            "photos": [
+                "https://picsum.photos/200/300"
+            ],
+            "year": 2023,
+            "pricePerDay": 160,
+            "fuelType": "Dizel",
+            "transmissionType": "Otomatik"
+        },
+        {
+            "id": 4,
+            "name": "Chevrolet Malibu",
+            "brand": "Chevrolet",
+            "model": "Malibu",
+            "photos": [
+                "https://picsum.photos/200/300"
+            ],
+            "year": 2022,
+            "pricePerDay": 170,
+            "fuelType": "Benzin",
+            "transmissionType": "Manuel"
+        },
+        {
+            "id": 5,
+            "name": "Volkswagen Passat",
+            "brand": "Volkswagen",
+            "model": "Passat",
+            "photos": [
+                "https://picsum.photos/200/300"
+            ],
+            "year": 2021,
+            "pricePerDay": 190,
+            "fuelType": "Hybrid",
+            "transmissionType": "Otomatik"
+        },
+        {
+            "id": 6,
+            "name": "Nissan Altima",
+            "brand": "Nissan",
+            "model": "Altima",
+            "photos": [
+                "https://picsum.photos/200/300"
+            ],
+            "year": 2023,
+            "pricePerDay": 155,
+            "fuelType": "Dizel",
+            "transmissionType": "Manuel"
         }
     ],
     "reservations": [

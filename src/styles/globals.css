@@ -3,3 +3,7 @@
   margin: 0;
   box-sizing: 0;
 }
+
+a:-webkit-any-link {
+  text-decoration: none; /* Corrected syntax */
+}
