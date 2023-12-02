@@ -4,24 +4,23 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CardCmp from '@/components/CardCmp';
 import { Stack, Box } from '@mui/material';
+import { fetchCarDetails } from '@/store/CarSlice/carSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Details = () => {
     const router = useRouter();
     const { id } = router.query;
-    const [car, setCar] = useState(null);
+    const dispatch = useDispatch();
+    const { carsDetails } = useSelector(
+        (state) => state.cars
+    );
 
     useEffect(() => {
         if (id) {
-            axios
-                .get(`http://localhost:3001/vehicles/${id}`)
-                .then((response) => {
-                    setCar(response.data);
-                })
-                .catch((error) => console.log(error));
+            dispatch(fetchCarDetails(id));
         }
-    }, [id]);
-
-    if (!car) return <div>Loading...</div>;
+    }, [id, dispatch]);
+    if (!carsDetails) return <div>Loading...</div>;
 
     return (
         <Box
@@ -34,7 +33,7 @@ const Details = () => {
             }}
         >
             <Stack>
-                <CardCmp car={car} showButton={false} />
+                <CardCmp car={carsDetails} showButton={false} />
             </Stack>
         </Box>
     );
