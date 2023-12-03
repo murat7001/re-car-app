@@ -1,0 +1,23 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+
+const initialState = {
+    startDate: '',
+    endDate: '',
+};
+
+
+const dateSlice = createSlice({
+    name: 'dates',
+    initialState,
+    reducers: {
+        setDate: (state, action) => {
+            const [startDate, endDate] = action.payload
+            state.startDate = startDate
+            state.endDate = endDate
+        },
+    },
+})
+
+export const { setDate } = dateSlice.actions;
+export default dateSlice.reducer;
