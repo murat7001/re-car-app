@@ -6,6 +6,7 @@ import CardCmp from '@/components/CardCmp';
 import ImageGallery from 'react-image-gallery';
 import { fetchCarDetails } from '@/store/CarSlice/carSlice';
 import DateRange from '@/components/Navbar/DateRange';
+import Link from 'next/link';
 
 const Details = () => {
     const router = useRouter();
@@ -13,7 +14,7 @@ const Details = () => {
     const dispatch = useDispatch();
     const { carsDetails } = useSelector((state) => state.cars);
 
-    
+
     useEffect(() => {
         if (id) {
             dispatch(fetchCarDetails(id));
@@ -50,12 +51,14 @@ const Details = () => {
                     Günlük ücret: {carsDetails.pricePerDay} TL
                 </Typography>
                 <Typography>
-                    {carsDetails.transmissionType} 
+                    {carsDetails.transmissionType}
                 </Typography>
                 <Typography>
-                    Kapasite: {carsDetails.capacity} 
+                    Kapasite: {carsDetails.capacity}
                 </Typography>
-                <Button variant='contained'>Kirala</Button>
+                <Link href={`${carsDetails.id}/Rent/${carsDetails.id}`}>
+                    <Button variant='contained'>Kirala</Button>
+                </Link>
             </Box>
         </Stack>
     );

@@ -9,9 +9,9 @@ export default function Navbar() {
         <Box sx={{ flexGrow: 1, width: '60%', margin: 'auto', position: 'sticky', top: 0, zIndex: 1000 }}>
             <AppBar position="static" sx={{ borderRadius: '0px 0px 10px 10px', background: 'white', color: 'black' }}>
                 <Toolbar>
-                    <DateRange />
                     <Box sx={{ flexGrow: 1 }}></Box>
                     <SearchBar />
+                    <Box sx={{ flexGrow: 1 }}></Box>
                 </Toolbar>
             </AppBar>
         </Box>
