@@ -10,12 +10,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 
-export default function CardCmp({ car, showButton = true }) {
+export default function CardCmp({ car }) {
 
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader title={car.name} />
-            {car.photos &&  (
+            {car.photos && (
                 <CardMedia component="img" height="194" image={car.photos[0]} alt="Car" />
             )}
             <CardContent>
@@ -33,13 +33,13 @@ export default function CardCmp({ car, showButton = true }) {
                 <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                 </IconButton>
-                {showButton && (
-                    <Link href={`/Cars/${car.id}`} underline="none">
-                        <Button variant="contained" size="small">
-                            Details
-                        </Button>
-                    </Link>
-                )}
+
+                <Link href={`/Cars/${car.id}`} underline="none">
+                    <Button variant="contained" size="small">
+                        Details
+                    </Button>
+                </Link>
+
             </CardActions>
         </Card>
     );
