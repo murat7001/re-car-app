@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setCategories, setSelectedCategory } from '../../../store/CategoriesSlice/categoriesSlice';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -21,7 +22,7 @@ const MenuProps = {
 function getStyles(category, categoryName, theme) {
     return {
         fontWeight:
-        categoryName.indexOf(category) === -1
+            categoryName.indexOf(category) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -30,24 +31,20 @@ function getStyles(category, categoryName, theme) {
 export default function SelectMenu() {
     const { cars } = useSelector((state) => state.cars);
     const dispatch = useDispatch()
-    const [categories, setCategories] = useState([]);
-    const [categoryName, setCategoryName] = useState(categories.length > 0 ? categories[0].name : '');
+    const { list: categories, selectedCategory } = useSelector((state) => state.categories);
     const theme = useTheme();
-
 
     useEffect(() => {
         const uniqueBrands = [...new Set(cars.map(car => car.brand))];
         const brandObjects = uniqueBrands.map(brand => ({ name: brand }));
-        setCategories(brandObjects);
+        dispatch(setCategories(brandObjects));
     }, [cars, dispatch]);
 
     const handleChange = (event) => {
         const {
             target: { value },
         } = event;
-        setCategoryName(
-            typeof value === 'string' ? value.split(',') : value,
-        );
+        dispatch(setSelectedCategory(value));
     };
 
     return (
@@ -58,7 +55,7 @@ export default function SelectMenu() {
                     labelId="demo-multiple-categories-label"
                     id="demo-multiple-categories"
                     multiple={false}
-                    value={categoryName}
+                    value={selectedCategory}
                     onChange={handleChange}
                     input={<OutlinedInput label="Categories" />}
                     MenuProps={MenuProps}
@@ -67,7 +64,7 @@ export default function SelectMenu() {
                         <MenuItem
                             key={category.name}
                             value={category.name}
-                            style={getStyles(category.name, categoryName, theme)}
+                            style={getStyles(category.name, selectedCategory, theme)}
                         >
                             {category.name}
                         </MenuItem>
