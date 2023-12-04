@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
-import DateRange from '@/components/Navbar/DateRange';
+import DateRange from '@/components/DateRange';
 import validationSchema from './validations';
 import { useSelector } from 'react-redux';
 

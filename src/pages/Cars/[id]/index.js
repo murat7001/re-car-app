@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CardCmp from '@/components/CardCmp';
 import ImageGallery from 'react-image-gallery';
 import { fetchCarDetails } from '@/store/CarSlice/carSlice';
-import DateRange from '@/components/Navbar/DateRange';
+import DateRange from '@/components/DateRange';
 import Link from 'next/link';
 
 const Details = () => {
