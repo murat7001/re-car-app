@@ -1,21 +1,47 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export const categoriesSlice = createSlice({
+const initialState = {
+    categories: [],
+    loadingCategories: false,
+    error: null,
+    selectedCategory: '',
+};
+
+export const fetchCategories = createAsyncThunk(
+    'categories/fetchCategories',
+    async () => {
+        const response = await axios.get(
+            `http://localhost:3001/categories`
+        );
+        return response.data;
+    }
+);
+
+const categoriesSlice = createSlice({
     name: 'categories',
-    initialState: {
-        list: [],
-        selectedCategory: '',
-    },
+    initialState,
     reducers: {
-        setCategories: (state, action) => {
-            state.list = action.payload;
-        },
         setSelectedCategory: (state, action) => {
             state.selectedCategory = action.payload;
         },
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchCategories.pending, (state) => {
+                state.loadingCategories = true;
+            })
+            .addCase(fetchCategories.fulfilled, (state, action) => {
+                state.categories = action.payload;
+                state.loadingCategories = false;
+            })
+            .addCase(fetchCategories.rejected, (state, action) => {
+                state.loadingCategories = false;
+                state.error = action.error.message;
+            });
+    },
 });
 
-export const { setCategories, setSelectedCategory } = categoriesSlice.actions;
+export const { setSelectedCategory } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

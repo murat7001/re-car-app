@@ -1,6 +1,6 @@
 import CardCmp from "@/components/CardCmp";
 import Navbar from "@/components/Navbar";
-import { fetchCars } from "@/store/CarSlice/carSlice";
+import { fetchCarByCategory, fetchCars } from "@/store/CarSlice/carSlice";
 import {
     Grid,
     Stack,
@@ -11,11 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 const Home = () => {
     const dispatch = useDispatch();
     const { cars } = useSelector((state) => state.cars);
-
+    const { selectedCategory } = useSelector((state) => state.categories);
 
     useEffect(() => {
-        dispatch(fetchCars());
-    }, [dispatch]);
+        if (selectedCategory && selectedCategory  != "All") {
+            dispatch(fetchCarByCategory(selectedCategory));
+        } else {
+            dispatch(fetchCars());
+        }
+    }, [dispatch, selectedCategory]);
+
+    
     return (
         <div>
             <Navbar></Navbar>

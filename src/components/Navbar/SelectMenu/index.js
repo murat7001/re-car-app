@@ -4,9 +4,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategories, setSelectedCategory } from '../../../store/CategoriesSlice/categoriesSlice';
+import { fetchCategories, setSelectedCategory } from '../../../store/CategoriesSlice/categoriesSlice';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,26 +19,23 @@ const MenuProps = {
     },
 };
 
-function getStyles(category, categoryName, theme) {
+function getStyles(category, selectedCategory, theme) {
     return {
         fontWeight:
-            categoryName.indexOf(category) === -1
-                ? theme.typography.fontWeightRegular
-                : theme.typography.fontWeightMedium,
+            selectedCategory === category
+                ? theme.typography.fontWeightMedium
+                : theme.typography.fontWeightRegular,
     };
 }
 
 export default function SelectMenu() {
-    const { cars } = useSelector((state) => state.cars);
-    const dispatch = useDispatch()
-    const { list: categories, selectedCategory } = useSelector((state) => state.categories);
+    const dispatch = useDispatch();
+    const { categories, selectedCategory, loadingCategories, error } = useSelector((state) => state.categories);
     const theme = useTheme();
 
     useEffect(() => {
-        const uniqueBrands = [...new Set(cars.map(car => car.brand))];
-        const brandObjects = uniqueBrands.map(brand => ({ name: brand }));
-        dispatch(setCategories(brandObjects));
-    }, [cars, dispatch]);
+            dispatch(fetchCategories());
+    }, [ dispatch ]);
 
     const handleChange = (event) => {
         const {
@@ -62,11 +59,11 @@ export default function SelectMenu() {
                 >
                     {categories.map((category) => (
                         <MenuItem
-                            key={category.name}
-                            value={category.name}
-                            style={getStyles(category.name, selectedCategory, theme)}
+                            key={category}
+                            value={category}
+                            style={getStyles(category, selectedCategory, theme)}
                         >
-                            {category.name}
+                            {category}
                         </MenuItem>
                     ))}
                 </Select>
