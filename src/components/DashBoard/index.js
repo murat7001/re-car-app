@@ -21,26 +21,25 @@ export default function DashBoard({ children }) {
                 <Toolbar >
                     <Link href={'/'}>
                         <Typography
-                            variant="h6"
+                            variant="h4"
                             noWrap
                             component="div"
-                            sx={{ display: { sm: 'block' }, color:'black' }}
+                            sx={{ display: { sm: 'block' }, color: 'black' }}
                         >
-                            MUI
+                            M
                         </Typography>
                     </Link>
 
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { md: 'flex' } }}>
-                        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="error">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-
-                        <Button color={'inherit'}>Login</Button>
-                        <Button color={'inherit'}>Signin</Button>
+                        <Button sx={{ fontSize: '16px', marginRight: '8px' }} variant="outlined" color="success">
+                            Login
+                        </Button>
+                        <Button sx={{ fontSize: '16px' }} variant="contained" color="secondary">
+                            Signin
+                        </Button>
                     </Box>
+
                 </Toolbar>
             </AppBar>
             <Box component="main">

@@ -30,9 +30,7 @@ export default function CardCmp({ car }) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
+                
 
                 <Link href={`/Cars/${car.id}`} underline="none">
                     <Button variant="contained" size="small">

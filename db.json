@@ -111,6 +111,21 @@
             "fuelType": "Dizel",
             "transmissionType": "Manuel",
             "capacity": 5
+        },
+        {
+            "id": 7,
+            "name": "Toyota Hilux",
+            "brand": "Toyota",
+            "model": "Hilux",
+            "photos": [
+                "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ],
+            "year": 2022,
+            "pricePerDay": 150,
+            "fuelType": "Hybrid",
+            "transmissionType": "Otomatik",
+            "capacity": 5
         }
     ],
     "reservations": [
