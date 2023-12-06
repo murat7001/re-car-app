@@ -31,6 +31,7 @@ function Signin() {
                     console.log('user', user)
                 } else {
                     toast.success('Login successful.');
+                    formik.resetForm()
                     router.push('/')
                 }
             } catch (error) {

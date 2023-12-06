@@ -2,19 +2,39 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import validationSchema from './validations';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '@/store/AuthSlice/authSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 function SignUp() {
+    const dispatch = useDispatch()
+    const router = useRouter()
     const formik = useFormik({
         initialValues: {
             name: '',
             surname: '',
+            id: '',
             email: '',
             password: '',
             passwordConfirm: '',
+            role: 'user'
         },
         validationSchema,
-        onSubmit: async (values, bag) => {
-            // Handle form submission logic here
+        onSubmit: async (values) => {
+            try {
+                const data = await dispatch(registerUser(values))
+                if (data.payload == undefined) {
+                    toast.error('Username taken!!!');
+                }else{
+                    toast.success('Register success.');
+                    formik.resetForm()
+                    router.push('/Auth/Signin')
+                }
+                
+            } catch (error) {
+                toast.error('Kayit basarisiz!!!');
+            }
         },
     });
 
@@ -25,9 +45,7 @@ function SignUp() {
                     Sign Up
                 </Typography>
 
-                {formik.errors.general && (
-                    <Alert severity="error">{formik.errors.general}</Alert>
-                )}
+                <ToastContainer position="top-center" />
 
                 <form onSubmit={formik.handleSubmit}>
                     <FormControl fullWidth>
@@ -58,6 +76,21 @@ function SignUp() {
 
                         {formik.touched.surname && formik.errors.surname && (
                             <FormHelperText error>{formik.errors.surname}</FormHelperText>
+                        )}
+                    </FormControl>
+
+                    <FormControl fullWidth mt={2}>
+                        <FormLabel>User Name</FormLabel>
+                        <TextField
+                            name="id"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.id}
+                            error={formik.touched.id && Boolean(formik.errors.id)}
+                        />
+
+                        {formik.touched.id && formik.errors.id && (
+                            <FormHelperText error>{formik.errors.id}</FormHelperText>
                         )}
                     </FormControl>
 
@@ -101,7 +134,7 @@ function SignUp() {
                             onBlur={formik.handleBlur}
                             value={formik.values.passwordConfirm}
                             error={formik.touched.passwordConfirm && Boolean(formik.errors.passwordConfirm)}
-                            isInvalid={formik.touched.passwordConfirm && formik.errors.passwordConfirm} />
+                        />
 
                         {formik.touched.passwordConfirm && formik.errors.passwordConfirm && (
                             <FormHelperText error>{formik.errors.passwordConfirm}</FormHelperText>

@@ -1,160 +1,163 @@
 {
-    "users": [
-        {
-            "id": "userAdmin",
-            "email": "admin@example.com",
-            "password": "admin123",
-            "role": "admin",
-            "name": "Admin",
-            "surname": "User"
-        },
-        {
-            "id": "user1",
-            "email": "user1@example.com",
-            "password": "user123",
-            "role": "user",
-            "name": "John",
-            "surname": "Doe"
-        },
-        {
-            "id": "user2",
-            "email": "user2@example.com",
-            "password": "user456",
-            "role": "user",
-            "name": "Jane",
-            "surname": "Doe"
-        }
-    ],
-    "cars": [
-        {
-            "id": 1,
-            "name": "Toyota Corolla",
-            "brand": "Toyota",
-            "model": "Corolla",
-            "photos": [
-                "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            ],
-            "year": 2022,
-            "pricePerDay": 150,
-            "fuelType": "Hybrid",
-            "transmissionType": "Otomatik",
-            "capacity": 5
-        },
-        {
-            "id": 2,
-            "name": "Honda Civic",
-            "brand": "Honda",
-            "model": "Civic",
-            "photos": [
-                "https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
-                "https://images.unsplash.com/photo-1634737581963-5a22ba471961?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            ],
-            "year": 2021,
-            "pricePerDay": 180,
-            "fuelType": "Benzin",
-            "transmissionType": "Manuel",
-            "capacity": 5
-        },
-        {
-            "id": 3,
-            "name": "Ford Focus",
-            "brand": "Ford",
-            "model": "Focus",
-            "photos": [
-                "https://picsum.photos/200/300"
-            ],
-            "year": 2023,
-            "pricePerDay": 160,
-            "fuelType": "Dizel",
-            "transmissionType": "Otomatik",
-            "capacity": 5
-        },
-        {
-            "id": 4,
-            "name": "Chevrolet Malibu",
-            "brand": "Chevrolet",
-            "model": "Malibu",
-            "photos": [
-                "https://picsum.photos/200/300"
-            ],
-            "year": 2022,
-            "pricePerDay": 170,
-            "fuelType": "Benzin",
-            "transmissionType": "Manuel",
-            "capacity": 5
-        },
-        {
-            "id": 5,
-            "name": "Volkswagen Passat",
-            "brand": "Volkswagen",
-            "model": "Passat",
-            "photos": [
-                "https://picsum.photos/200/300"
-            ],
-            "year": 2021,
-            "pricePerDay": 190,
-            "fuelType": "Hybrid",
-            "transmissionType": "Otomatik",
-            "capacity": 5
-        },
-        {
-            "id": 6,
-            "name": "Nissan Altima",
-            "brand": "Nissan",
-            "model": "Altima",
-            "photos": [
-                "https://picsum.photos/200/300"
-            ],
-            "year": 2023,
-            "pricePerDay": 155,
-            "fuelType": "Dizel",
-            "transmissionType": "Manuel",
-            "capacity": 5
-        },
-        {
-            "id": 7,
-            "name": "Toyota Hilux",
-            "brand": "Toyota",
-            "model": "Hilux",
-            "photos": [
-                "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            ],
-            "year": 2022,
-            "pricePerDay": 150,
-            "fuelType": "Hybrid",
-            "transmissionType": "Otomatik",
-            "capacity": 5
-        }
-    ],
-    "reservations": [
-        {
-            "id": 1,
-            "userId": 2,
-            "carId": 1,
-            "startDate": "2023-01-01",
-            "endDate": "2023-01-05",
-            "address": "123 Main St, Cityville",
-            "phone": "555-1234"
-        },
-        {
-            "id": 2,
-            "userId": 3,
-            "carId": 2,
-            "startDate": "2023-02-15",
-            "endDate": "2023-02-20",
-            "address": "456 Elm St, Townsville",
-            "phone": "555-5678"
-        }
-    ],
-    "categories": [
-        "All",
-        "Toyota",
-        "Honda",
-        "Ford",
-        "Chevrolet",
-        "Volkswagen",
-        "Nissan"
-    ]
+  "users": [
+    {
+      "id": "userAdmin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin",
+      "name": "Admin",
+      "surname": "User",
+      "passwordConfirm": "admin123"
+    },
+    {
+      "id": "user1",
+      "email": "user1@example.com",
+      "password": "user123",
+      "role": "user",
+      "name": "John",
+      "surname": "Doe",
+      "passwordConfirm": "user123"
+    },
+    {
+      "id": "user2",
+      "email": "user2@example.com",
+      "password": "user456",
+      "role": "user",
+      "name": "Jane",
+      "surname": "Doe",
+      "passwordConfirm": "user456"
+    }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "name": "Toyota Corolla",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "photos": [
+        "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": 2022,
+      "pricePerDay": 150,
+      "fuelType": "Hybrid",
+      "transmissionType": "Otomatik",
+      "capacity": 5
+    },
+    {
+      "id": 2,
+      "name": "Honda Civic",
+      "brand": "Honda",
+      "model": "Civic",
+      "photos": [
+        "https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
+        "https://images.unsplash.com/photo-1634737581963-5a22ba471961?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": 2021,
+      "pricePerDay": 180,
+      "fuelType": "Benzin",
+      "transmissionType": "Manuel",
+      "capacity": 5
+    },
+    {
+      "id": 3,
+      "name": "Ford Focus",
+      "brand": "Ford",
+      "model": "Focus",
+      "photos": [
+        "https://picsum.photos/200/300"
+      ],
+      "year": 2023,
+      "pricePerDay": 160,
+      "fuelType": "Dizel",
+      "transmissionType": "Otomatik",
+      "capacity": 5
+    },
+    {
+      "id": 4,
+      "name": "Chevrolet Malibu",
+      "brand": "Chevrolet",
+      "model": "Malibu",
+      "photos": [
+        "https://picsum.photos/200/300"
+      ],
+      "year": 2022,
+      "pricePerDay": 170,
+      "fuelType": "Benzin",
+      "transmissionType": "Manuel",
+      "capacity": 5
+    },
+    {
+      "id": 5,
+      "name": "Volkswagen Passat",
+      "brand": "Volkswagen",
+      "model": "Passat",
+      "photos": [
+        "https://picsum.photos/200/300"
+      ],
+      "year": 2021,
+      "pricePerDay": 190,
+      "fuelType": "Hybrid",
+      "transmissionType": "Otomatik",
+      "capacity": 5
+    },
+    {
+      "id": 6,
+      "name": "Nissan Altima",
+      "brand": "Nissan",
+      "model": "Altima",
+      "photos": [
+        "https://picsum.photos/200/300"
+      ],
+      "year": 2023,
+      "pricePerDay": 155,
+      "fuelType": "Dizel",
+      "transmissionType": "Manuel",
+      "capacity": 5
+    },
+    {
+      "id": 7,
+      "name": "Toyota Hilux",
+      "brand": "Toyota",
+      "model": "Hilux",
+      "photos": [
+        "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": 2022,
+      "pricePerDay": 150,
+      "fuelType": "Hybrid",
+      "transmissionType": "Otomatik",
+      "capacity": 5
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "carId": 1,
+      "startDate": "2023-01-01",
+      "endDate": "2023-01-05",
+      "address": "123 Main St, Cityville",
+      "phone": "555-1234"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "carId": 2,
+      "startDate": "2023-02-15",
+      "endDate": "2023-02-20",
+      "address": "456 Elm St, Townsville",
+      "phone": "555-5678"
+    }
+  ],
+  "categories": [
+    "All",
+    "Toyota",
+    "Honda",
+    "Ford",
+    "Chevrolet",
+    "Volkswagen",
+    "Nissan"
+  ]
 }
