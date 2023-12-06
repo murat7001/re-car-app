@@ -1,7 +1,7 @@
 {
     "users": [
         {
-            "id": 1,
+            "id": "userAdmin",
             "email": "admin@example.com",
             "password": "admin123",
             "role": "admin",
@@ -9,7 +9,7 @@
             "surname": "User"
         },
         {
-            "id": 2,
+            "id": "user1",
             "email": "user1@example.com",
             "password": "user123",
             "role": "user",
@@ -17,7 +17,7 @@
             "surname": "Doe"
         },
         {
-            "id": 3,
+            "id": "user2",
             "email": "user2@example.com",
             "password": "user456",
             "role": "user",

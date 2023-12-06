@@ -1,20 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import validationSchema from './validations'
+import { fetchUser } from '@/store/AuthSlice/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signin() {
+    const dispatch = useDispatch()
+    let { loggedIn, user } = useSelector((state) => state.auth);
+    const router = useRouter()
+
     const formik = useFormik({
         initialValues: {
-            email: '', // Corrected typo in the property name
+            userName: '',
             password: '',
         },
         validationSchema,
-        onSubmit: async (values, bag) => {
-            // Handle form submission logic here
+        onSubmit: async (values) => {
+            try {
+                const data = await dispatch(fetchUser(values));
+                
+                if (data && data.payload.password !== values.password) {
+                    toast.error('Wrong paassword!!!');
+                    loggedIn = false
+                    user = null
+                    console.log('loggedIn', loggedIn)
+                    console.log('user', user)
+                } else {
+                    toast.success('Login successful.');
+                    router.push('/')
+                }
+            } catch (error) {
+                toast.error('User not found!!!');
+                loggedIn = false
+                user = null
+                console.log('loggedIn', loggedIn)
+                console.log('user', user)
+                
+            }
         },
     });
-
 
     return (
         <Box mt={10} display="flex" justifyContent="center" alignItems="center">
@@ -23,24 +51,22 @@ function Signin() {
                     Sign In
                 </Typography>
 
-                {formik.errors.general && (
-                    <Alert severity="error">{formik.errors.general}</Alert>
-                )}
+                <ToastContainer position="top-center" />
 
                 <form onSubmit={formik.handleSubmit}>
                     <FormControl fullWidth>
-                        <FormLabel>E-mail</FormLabel>
+                        <FormLabel>Username</FormLabel>
                         <TextField
-                            name="email"
+                            name="userName" 
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.email}
-                            error={formik.touched.email && Boolean(formik.errors.email)}
+                            value={formik.values.userName} 
+                            error={formik.touched.userName && Boolean(formik.errors.userName)}
                             autoFocus
                         />
 
-                        {formik.touched.email && formik.errors.email && (
-                            <FormHelperText error>{formik.errors.email}</FormHelperText>
+                        {formik.touched.userName && formik.errors.userName && ( 
+                            <FormHelperText error>{formik.errors.userName}</FormHelperText>
                         )}
                     </FormControl>
 
@@ -51,7 +77,7 @@ function Signin() {
                             type='password'
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.phone}
+                            value={formik.values.password}
                             error={formik.touched.password && Boolean(formik.errors.password)}
                         />
 
@@ -70,6 +96,15 @@ function Signin() {
                         Sign In
                     </Button>
                 </form>
+                <Box my={5}>
+                    {
+                        formik.errors.general && (
+                            <Alert status='error'>
+                                {formik.errors.general}
+                            </Alert>
+                        )
+                    }
+                </Box>
             </Stack>
         </Box>
     );

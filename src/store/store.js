@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import carReducer from './CarSlice/carSlice';
 import dateReducer from './DateSlice/dateSlice';
-import categoriesSlice from './CategoriesSlice/categoriesSlice';
+import categoriesReducer from './CategoriesSlice/categoriesSlice';
+import authReducer from './AuthSlice/authSlice';
 
 export const store = configureStore({
   reducer: {
     cars: carReducer,
     dates: dateReducer,
-    categories: categoriesSlice,
+    categories: categoriesReducer,
+    auth: authReducer,
   },
 });
