@@ -47,6 +47,9 @@ const authSlice = createSlice({
             state.loggedIn = false;
             state.user = null;
         },
+        loggedFalse: (state) => {
+            state.loggedIn = false;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -57,6 +60,7 @@ const authSlice = createSlice({
                 state.loading = false;
                 state.user = action.payload;
                 state.loggedIn = true
+                console.log('first')
             })
             .addCase(fetchUser.rejected, (state) => {
                 state.loading = false;
@@ -72,6 +76,6 @@ const authSlice = createSlice({
     },
 });
 
-export const { logOutUser } = authSlice.actions;
+export const { logOutUser, loggedFalse } = authSlice.actions;
 
 export default authSlice.reducer;

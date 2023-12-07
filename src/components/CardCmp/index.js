@@ -15,7 +15,9 @@ import Stack from '@mui/material/Stack';
 export default function CardCmp({ car }) {
 
     return (
-        <Card variant='outlined' sx={{ maxWidth: 345 }}>
+        <Card variant='outlined' sx={{ maxWidth: 345, transition: 'border-color .5s ease', '&:hover': {
+            borderColor: '#5FBDFF',
+        }, }}>
             <CardHeader title={car.name} />
             {car.photos && (
                 <Stack sx={{padding:'15px'}}>

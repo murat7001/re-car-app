@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import validationSchema from './validations'
-import { fetchUser } from '@/store/AuthSlice/authSlice';
+import { fetchUser, loggedFalse } from '@/store/AuthSlice/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,7 +25,7 @@ function Signin() {
                 
                 if (data && data.payload.password !== values.password) {
                     toast.error('Wrong paassword!!!');
-                    loggedIn = false
+                    dispatch(loggedFalse())
                     user = null
                     console.log('loggedIn', loggedIn)
                     console.log('user', user)
@@ -36,7 +36,7 @@ function Signin() {
                 }
             } catch (error) {
                 toast.error('User not found!!!');
-                loggedIn = false
+                dispatch(loggedFalse())
                 user = null
                 console.log('loggedIn', loggedIn)
                 console.log('user', user)
@@ -46,8 +46,8 @@ function Signin() {
     });
 
     return (
-        <Box mt={10} display="flex" justifyContent="center" alignItems="center">
-            <Stack width="400px" spacing={4}>
+        <Box  mt={10} display="flex" justifyContent="center" alignItems="center">
+            <Stack sx={{background:'#F3F3F3', padding:'30px',borderRadius:'30px'}} width="400px" spacing={4}>
                 <Typography variant="h4" textAlign="center">
                     Sign In
                 </Typography>
