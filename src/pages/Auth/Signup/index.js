@@ -40,7 +40,7 @@ function SignUp() {
 
     return (
         <Box mt={3} display="flex" justifyContent="center" alignItems="center">
-            <Stack width="400px" spacing={4}>
+            <Stack sx={{background:'#F3F3F3', padding:'30px',borderRadius:'10px'}} width="400px" spacing={1}>
                 <Typography variant="h4" textAlign="center">
                     Sign Up
                 </Typography>
