@@ -26,6 +26,15 @@
       "name": "Jane",
       "surname": "Doe",
       "passwordConfirm": "user456"
+    },
+    {
+      "name": "cagr",
+      "surname": "cagr",
+      "id": "user22",
+      "email": "cagritrkmn33@gmail.com",
+      "password": "cagri",
+      "passwordConfirm": "cagri",
+      "role": "user"
     }
   ],
   "cars": [

@@ -13,6 +13,7 @@ const Details = () => {
     const { id } = router.query;
     const dispatch = useDispatch();
     const { carsDetails } = useSelector((state) => state.cars);
+    let { loggedIn } = useSelector((state) => state.auth);
 
 
     useEffect(() => {
@@ -27,6 +28,13 @@ const Details = () => {
 
     const images = carsDetails.photos ? carsDetails.photos.map((url) => ({ original: url })) : [];
 
+    const handleButtonClick = () => {
+        if (loggedIn) {
+            router.push(`${carsDetails.id}/Rent/${carsDetails.id}`);
+        } else {
+            router.push('/Auth/Signin');
+        }
+    };
     return (
         <Stack
             sx={{
@@ -56,9 +64,10 @@ const Details = () => {
                 <Typography>
                     Kapasite: {carsDetails.capacity}
                 </Typography>
-                <Link href={`${carsDetails.id}/Rent/${carsDetails.id}`}>
-                    <Button variant='contained'>Kirala</Button>
-                </Link>
+
+
+                <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
+
             </Box>
         </Stack>
     );
