@@ -49,9 +49,18 @@ const Details = () => {
                 sx={{
                     maxWidth: '500px',
                     width: '100%',
+                    background: 'red'
                 }}
             >
-                <ImageGallery showPlayButton={false} items={images} />
+                <Box sx={{
+                    background: 'yellow',
+                    height: '300px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+                    <ImageGallery  showPlayButton={false} items={images} />
+                </Box>
                 <Typography>
                     {carsDetails.name}
                 </Typography>

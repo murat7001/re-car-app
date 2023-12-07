@@ -9,15 +9,23 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Link from 'next/link';
 import { Button } from '@mui/material';
+import Stack from '@mui/material/Stack';
+
 
 export default function CardCmp({ car }) {
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card variant='outlined' sx={{ maxWidth: 345 }}>
             <CardHeader title={car.name} />
             {car.photos && (
-                <CardMedia component="img" height="194" image={car.photos[0]} alt="Car" />
+                <Stack sx={{padding:'15px'}}>
+                    <CardMedia sx={{
+                        height: '190px',
+                        borderRadius:'3px'
+                    }} component="img" height="194" image={car.photos[0]} alt="Car" />
+                </Stack>
             )}
+
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {car.fuelType}
@@ -30,7 +38,7 @@ export default function CardCmp({ car }) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                
+
 
                 <Link href={`/Cars/${car.id}`} underline="none">
                     <Button variant="contained" size="small">
