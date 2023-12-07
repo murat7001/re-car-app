@@ -14,7 +14,7 @@ Run the development server:
 npm run dev
 ```
 ```bash
-json-server --watch db.json --port 3001
+npm run json
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
