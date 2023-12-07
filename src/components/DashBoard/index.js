@@ -19,14 +19,7 @@ export default function DashBoard({ children }) {
             <AppBar sx={{ padding: '0 30px', background: 'white', color: 'black' }} position="static">
                 <Toolbar >
                     <Link href={'/'}>
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            component="div"
-                            sx={{ display: { sm: 'block' }, color: 'black' }}
-                        >
-                            M
-                        </Typography>
+                        <img style={{height:'60px'}} src='/transparan.png' alt="" />
                     </Link>
 
                     <Box sx={{ flexGrow: 1 }} />
