@@ -64,7 +64,7 @@
       ],
       "year": 2021,
       "pricePerDay": 180,
-      "fuelType": "Benzin",
+      "fuelType": "Gas",
       "transmissionType": "Manuel",
       "capacity": 5
     },
@@ -79,7 +79,7 @@
       ],
       "year": 2023,
       "pricePerDay": 160,
-      "fuelType": "Dizel",
+      "fuelType": "Diesel",
       "transmissionType": "Otomatik",
       "capacity": 5
     },
@@ -94,7 +94,7 @@
       ],
       "year": 2022,
       "pricePerDay": 170,
-      "fuelType": "Benzin",
+      "fuelType": "Gas",
       "transmissionType": "Manuel",
       "capacity": 5
     },
@@ -124,7 +124,7 @@
       ],
       "year": 2023,
       "pricePerDay": 155,
-      "fuelType": "Dizel",
+      "fuelType": "Diesel",
       "transmissionType": "Manuel",
       "capacity": 5
     },

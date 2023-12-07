@@ -41,7 +41,7 @@ export default function CardCmp({ car }) {
 
 
                 <Link href={`/Cars/${car.id}`} underline="none">
-                    <Button variant="contained" size="small">
+                    <Button sx={{marginLeft:'5px'}} variant="contained" size="small">
                         Details
                     </Button>
                 </Link>

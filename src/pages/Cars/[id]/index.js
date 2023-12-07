@@ -40,42 +40,53 @@ const Details = () => {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
                 alignItems: 'center',
                 height: 'calc(100vh - 64px)',
+                justifyContent:'center',
             }}
         >
             <Box
                 sx={{
-                    maxWidth: '500px',
+                    maxWidth: '800px',
                     width: '100%',
-                    background: 'red'
+                    display:'flex',
+                    justifyContent:'space-around',
+                    background:'#F3F3F3',
+                    padding:'50px',
+                    borderRadius:'30px'
                 }}
             >
                 <Box sx={{
-                    background: 'yellow',
                     height: '300px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                 }}>
-                    <ImageGallery  showPlayButton={false} items={images} />
+                    <ImageGallery showPlayButton={false} items={images} />
                 </Box>
-                <Typography>
-                    {carsDetails.name}
-                </Typography>
-                <Typography>
-                    Günlük ücret: {carsDetails.pricePerDay} TL
-                </Typography>
-                <Typography>
-                    {carsDetails.transmissionType}
-                </Typography>
-                <Typography>
-                    Kapasite: {carsDetails.capacity}
-                </Typography>
+                <Stack>
+                    <Typography variant="h4">
+                        {carsDetails.name}
+                    </Typography>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'20px' }}>
+                        Fuel Type: {carsDetails.fuelType} 
+                    </Typography>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                        Type: {carsDetails.transmissionType}
+                    </Typography>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                        Price per day: {carsDetails.pricePerDay} TL
+                    </Typography>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                        Capacity: {carsDetails.capacity}
+                    </Typography>
 
 
-                <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
+                    <Stack sx={{ mt: 'auto' }}>
+                        <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
+                    </Stack>
+                </Stack>
+
 
             </Box>
         </Stack>
