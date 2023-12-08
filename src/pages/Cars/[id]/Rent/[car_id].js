@@ -9,7 +9,7 @@ function Rent() {
     const { startDate, endDate } = useSelector((state) => state.dates);
     const formik = useFormik({
         initialValues: {
-            address: '', // Corrected typo in the property name
+            address: '',
             phone: '',
         },
         validationSchema,
@@ -22,7 +22,7 @@ function Rent() {
 
     return (
         <Box mt={10} display="flex" justifyContent="center" alignItems="center">
-            <Stack width="400px" spacing={4}>
+            <Stack sx={{background:'#F3F3F3', padding:'30px',borderRadius:'30px'}} width="400px" spacing={4}>
                 <Typography variant="h4" textAlign="center">
                     Rent A Car
                 </Typography>
