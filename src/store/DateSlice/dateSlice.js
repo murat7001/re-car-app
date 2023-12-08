@@ -16,8 +16,12 @@ const dateSlice = createSlice({
             state.startDate = startDate
             state.endDate = endDate
         },
+        resetDate: (state) => {
+            state.startDate = ''
+            state.endDate = ''
+        }
     },
 })
 
-export const { setDate } = dateSlice.actions;
+export const { setDate, resetDate } = dateSlice.actions;
 export default dateSlice.reducer;

@@ -1,28 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import DateRange from '@/components/DateRange';
 import validationSchema from './validations';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { saveReservations } from '@/store/ReservationsSlice/reservationsSlice';
+import { resetDate } from '@/store/DateSlice/dateSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Rent() {
     const { startDate, endDate } = useSelector((state) => state.dates);
+    const { user } = useSelector((state) => state.auth);
+    const router = useRouter();
+    const { car_id } = router.query;
+    const dispatch = useDispatch()
+    const isDateSelected = startDate && endDate;
+
     const formik = useFormik({
         initialValues: {
-            address: '',
-            phone: '',
+            userId: user.id,
+            carId: car_id,
+            address: "",
+            phone: "",
         },
         validationSchema,
         onSubmit: async (values, bag) => {
-            // Handle form submission logic here
+            const updatedValues = {
+                ...values,
+                startDate: startDate,
+                endDate: endDate,
+            };
+            dispatch(saveReservations(updatedValues));
+            dispatch(resetDate())
+            formik.resetForm()
+            toast.success('Reservation added.');
         },
     });
 
-    const isDateSelected = startDate && endDate;
+    useEffect(() => {
+        const handleRouteChange = () => {
+            dispatch(resetDate());
+        };
+        router.events.on('routeChangeComplete', handleRouteChange);
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange);
+        };
+    }, [router.events, dispatch]);
 
     return (
         <Box mt={10} display="flex" justifyContent="center" alignItems="center">
-            <Stack sx={{background:'#F3F3F3', padding:'30px',borderRadius:'30px'}} width="400px" spacing={4}>
+            <ToastContainer position="top-center" />
+            <Stack sx={{ background: '#F3F3F3', padding: '30px', borderRadius: '30px' }} width="400px" spacing={4}>
                 <Typography variant="h4" textAlign="center">
                     Rent A Car
                 </Typography>

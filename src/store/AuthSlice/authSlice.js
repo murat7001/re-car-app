@@ -60,7 +60,6 @@ const authSlice = createSlice({
                 state.loading = false;
                 state.user = action.payload;
                 state.loggedIn = true
-                console.log('first')
             })
             .addCase(fetchUser.rejected, (state) => {
                 state.loading = false;
