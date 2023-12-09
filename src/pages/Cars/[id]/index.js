@@ -13,7 +13,7 @@ const Details = () => {
     const { id } = router.query;
     const dispatch = useDispatch();
     const { carsDetails } = useSelector((state) => state.cars);
-    let { loggedIn } = useSelector((state) => state.auth);
+    let { loggedIn, user } = useSelector((state) => state.auth);
 
 
     useEffect(() => {
@@ -42,18 +42,18 @@ const Details = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 height: 'calc(100vh - 64px)',
-                justifyContent:'center',
+                justifyContent: 'center',
             }}
         >
             <Box
                 sx={{
                     maxWidth: '800px',
                     width: '100%',
-                    display:'flex',
-                    justifyContent:'space-around',
-                    background:'#F3F3F3',
-                    padding:'50px',
-                    borderRadius:'30px'
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    background: '#F3F3F3',
+                    padding: '50px',
+                    borderRadius: '30px'
                 }}
             >
                 <Box sx={{
@@ -68,23 +68,27 @@ const Details = () => {
                     <Typography variant="h4">
                         {carsDetails.name}
                     </Typography>
-                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'20px' }}>
-                        Fuel Type: {carsDetails.fuelType} 
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop: '20px' }}>
+                        Fuel Type: {carsDetails.fuelType}
                     </Typography>
-                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop: '15px' }}>
                         Type: {carsDetails.transmissionType}
                     </Typography>
-                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop: '15px' }}>
                         Price per day: {carsDetails.pricePerDay} TL
                     </Typography>
-                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop:'15px' }}>
+                    <Typography sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop: '15px' }}>
                         Capacity: {carsDetails.capacity}
                     </Typography>
 
 
-                    <Stack sx={{ mt: 'auto' }}>
-                        <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
-                    </Stack>
+                    {user?.role === 'user' && (
+                        <Stack sx={{ mt: 'auto' }}>
+                            <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
+                        </Stack>
+                    )}
+
+
                 </Stack>
 
 
