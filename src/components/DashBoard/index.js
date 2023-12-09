@@ -41,7 +41,7 @@ export default function DashBoard({ children }) {
 
                         {loggedIn && (
                             <>
-                                {user?.role === 'user' && (
+                                {(
                                     <Link href={"/Profile"}>
                                         <Button sx={{ fontSize: '16px', marginRight: '8px', textTransform: 'none' }} variant="contained" color="secondary">Profile</Button>
                                     </Link>
