@@ -27,8 +27,6 @@ function Signin() {
                     toast.error('Wrong paassword!!!');
                     dispatch(loggedFalse())
                     user = null
-                    console.log('loggedIn', loggedIn)
-                    console.log('user', user)
                 } else {
                     toast.success('Login successful.');
                     formik.resetForm()
@@ -38,9 +36,6 @@ function Signin() {
                 toast.error('User not found!!!');
                 dispatch(loggedFalse())
                 user = null
-                console.log('loggedIn', loggedIn)
-                console.log('user', user)
-                
             }
         },
     });
