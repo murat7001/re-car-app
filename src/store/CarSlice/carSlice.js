@@ -42,6 +42,14 @@ export const fetchCarByCategory = createAsyncThunk(
     }
 );
 
+export const addNewCar = createAsyncThunk(
+    'cars/addNewCar',
+    async (newCarData) => {
+        const response = await axios.post("http://localhost:3001/cars", newCarData);
+        return response.data;
+    }
+);
+
 const carsSlice = createSlice({
     name: 'cars',
     initialState,
@@ -89,6 +97,17 @@ const carsSlice = createSlice({
                 state.loadingCars = false;
             })
             .addCase(fetchCarByCategory.rejected, (state, action) => {
+                state.loadingCars = false;
+                state.error = action.error.message;
+            })
+            .addCase(addNewCar.pending, (state) => {
+                state.loadingCars = true;
+            })
+            .addCase(addNewCar.fulfilled, (state, action) => {
+                state.cars.push(action.payload);
+                state.loadingCars = false;
+            })
+            .addCase(addNewCar.rejected, (state, action) => {
                 state.loadingCars = false;
                 state.error = action.error.message;
             });
