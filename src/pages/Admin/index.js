@@ -1,12 +1,15 @@
-import withAuth from "../withAuth";
+import { Stack } from "@mui/material";
+import ProtectedAdmin from "./ProtectedAdmin";
+
 
 const AdminPage = () => {
     return (
-        <div>
-            <h1>Admin Sayfası</h1>
-        </div>
-    );  
-};
- 
 
-export default withAuth(AdminPage);
+        <Stack>
+            <ProtectedAdmin />
+        </Stack>
+    );
+};
+
+
+export default AdminPage;
