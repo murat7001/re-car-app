@@ -1,43 +1,57 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FieldArray, Formik } from 'formik'
 import { Box, Button, FormControl, TextField, Typography } from '@mui/material';
 import validationSchema from './validations'
 import ProtectedAdmin from '../../ProtectedAdmin';
-import { addNewCar } from '@/store/CarSlice/carSlice';
-import { useDispatch } from 'react-redux';
+import { addNewCar, editCar, fetchCarDetails } from '@/store/CarSlice/carSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
-function AddCar() {
+function EditCar() {
     const dispatch = useDispatch()
+    const router = useRouter();
+    const { id } = router.query;
+    const { carsDetails, loadingCarsDetails } = useSelector((state) => state.cars);
 
-    const handleSubmit = async (values, { resetForm }) => {
-        try {
-            dispatch(addNewCar(values));
-            resetForm();
-            toast.success('Car added.');
-        } catch (error) {
-            toast.error('Car not added');
+    useEffect(() => {
+        if (id) {
+            dispatch(fetchCarDetails(id));
         }
-        
+    }, [id, dispatch]);
 
+    const handleSubmit = async (values) => {
+        try {
+            await dispatch(editCar({id, values}));
+            toast.success('Car edited.');
+        } catch (error) {
+            toast.error('Car not edited');
+        }
     }
+
+
+    if (loadingCarsDetails) {
+        return <Box display={'flex'} justifyContent={'center'}>Loading...</Box>;
+    }
+
+    
     return (
         <Box>
             <ToastContainer position="top-center" />
             <ProtectedAdmin></ProtectedAdmin>
             <Box sx={{ background: '#F3F3F3', padding: '50px', margin:'50px', borderRadius:'30px' }}>
-            <Typography variant='h4'>New Car</Typography>
+            <Typography variant='h4'>Edit</Typography>
             <Formik
                 initialValues={{
-                    name: "",
-                    brand: "",
-                    model: "",
-                    photos: [],
-                    year: "",
-                    pricePerDay: "",
-                    fuelType: "",
-                    transmissionType: "",
-                    capacity: "",
+                    name: carsDetails.name,
+                    brand: carsDetails.brand,
+                    model: carsDetails.model,
+                    photos: carsDetails.photos,
+                    year: carsDetails.year,
+                    pricePerDay: carsDetails.pricePerDay,
+                    fuelType: carsDetails.fuelType,
+                    transmissionType: carsDetails.transmissionType,
+                    capacity: carsDetails.capacity,
                 }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
@@ -94,7 +108,7 @@ function AddCar() {
                                         name="photos"
                                         render={(arrayHelpers) => (
                                             <div>
-                                                {values.photos.map((photo, index) => (
+                                                {values.photos && values.photos.map((photo, index) => (
                                                     <Box sx={{ marginTop: '8px' }} key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                         <TextField
                                                             label={`Photo ${index + 1}`}
@@ -193,4 +207,4 @@ function AddCar() {
     )
 }
 
-export default AddCar
+export default EditCar

@@ -20,11 +20,16 @@ export const fetchCars = createAsyncThunk(
 
 export const fetchCarDetails = createAsyncThunk(
     'cars/fetchCarDetails',
-    async (id) => {
-        const response = await axios.get(`http://localhost:3001/cars/${id}`)
-        return response.data;
+    async (id, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`http://localhost:3001/cars/${id}`)
+            return response.data;
+        } catch (error) {
+            rejectWithValue(error.response.data.error)
+        }
     }
 );
+
 
 export const searchCars = createAsyncThunk(
     'cars/searchCars',
@@ -57,6 +62,17 @@ export const deleteCar = createAsyncThunk(
         return response.data;
     }
 );
+
+export const editCar = createAsyncThunk(
+    'cars/editCar',
+    async ({ id, values }) => {
+        const response = await axios.put(`http://localhost:3001/cars/${id}`, values);
+        return response.data;
+    }
+);
+
+
+
 
 const carsSlice = createSlice({
     name: 'cars',
@@ -127,6 +143,22 @@ const carsSlice = createSlice({
                 state.loadingCars = false;
             })
             .addCase(deleteCar.rejected, (state, action) => {
+                state.loadingCars = false;
+                state.error = action.error.message;
+            })
+            .addCase(editCar.pending, (state) => {
+                state.loadingCars = true;
+            })
+            .addCase(editCar.fulfilled, (state, action) => {
+                const editedCarIndex = state.cars.findIndex(car => car.id === action.payload.id);
+        
+                if (editedCarIndex !== -1) {
+                    state.cars[editedCarIndex] = action.payload;
+                }
+        
+                state.loadingCars = false;
+            })
+            .addCase(editCar.rejected, (state, action) => {
                 state.loadingCars = false;
                 state.error = action.error.message;
             });
