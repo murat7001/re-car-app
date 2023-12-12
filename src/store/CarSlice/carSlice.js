@@ -50,6 +50,14 @@ export const addNewCar = createAsyncThunk(
     }
 );
 
+export const deleteCar = createAsyncThunk(
+    'cars/deleteCar',
+    async (carId) => {
+        const response = await axios.delete(`http://localhost:3001/cars/${carId}`);
+        return response.data;
+    }
+);
+
 const carsSlice = createSlice({
     name: 'cars',
     initialState,
@@ -108,6 +116,17 @@ const carsSlice = createSlice({
                 state.loadingCars = false;
             })
             .addCase(addNewCar.rejected, (state, action) => {
+                state.loadingCars = false;
+                state.error = action.error.message;
+            })
+            .addCase(deleteCar.pending, (state) => {
+                state.loadingCars = true;
+            })
+            .addCase(deleteCar.fulfilled, (state, action) => {
+                state.cars = state.cars.filter(car => car.id !== action.payload.id);
+                state.loadingCars = false;
+            })
+            .addCase(deleteCar.rejected, (state, action) => {
                 state.loadingCars = false;
                 state.error = action.error.message;
             });
