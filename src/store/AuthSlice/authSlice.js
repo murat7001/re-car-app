@@ -37,6 +37,18 @@ export const registerUser = createAsyncThunk(
     }
 );
 
+export const editUser = createAsyncThunk(
+    'auth/editUser',
+    async ({ id, updatedValues }) => {
+        try {
+            const response = await axios.put(`http://localhost:3001/users/${id}`, updatedValues);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+);
+
 
 
 const authSlice = createSlice({
