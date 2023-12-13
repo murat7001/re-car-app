@@ -50,7 +50,7 @@
       "year": "2022",
       "pricePerDay": "150",
       "fuelType": "Hybrid",
-      "transmissionType": "Otomatik",
+      "transmissionType": "Automatic",
       "capacity": "5"
     },
     {
@@ -60,7 +60,7 @@
       "model": "Civic",
       "photos": [
         "https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?w=500&h=300&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
-        "https://images.unsplash.com/photo-1634737581963-5a22ba471961?q=80&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "https://images.unsplash.com/photo-1634737581963-5a22ba471961?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       "year": "2021",
       "pricePerDay": "180",
@@ -74,26 +74,26 @@
       "brand": "Ford",
       "model": "Focus",
       "photos": [
-        "https://picsum.photos/500/300",
-        "https://picsum.photos/500/300"
+        "https://images.unsplash.com/photo-1594809985051-3d5b8a9f0921?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1594809985051-3d5b8a9f0921?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       "year": "2023",
       "pricePerDay": "160",
       "fuelType": "Diesel",
-      "transmissionType": "Otomatik",
+      "transmissionType": "Automatic",
       "capacity": "5"
     },
     {
       "id": 4,
-      "name": "Chevrolet Malibu",
-      "brand": "Chevrolet",
-      "model": "Malibu",
+      "name": "Audi A4",
+      "brand": "Audi",
+      "model": "A4",
       "photos": [
-        "https://picsum.photos/500/300",
-        "https://picsum.photos/500/300"
+        "https://images.unsplash.com/photo-1614328467603-0444b9fcfc47?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1614328467603-0444b9fcfc47?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       "year": "2022",
-      "pricePerDay": "170",
+      "pricePerDay": "450",
       "fuelType": "Gas",
       "transmissionType": "Manuel",
       "capacity": "5"
@@ -104,28 +104,28 @@
       "brand": "Volkswagen",
       "model": "Passat",
       "photos": [
-        "https://picsum.photos/500/300",
-        "https://picsum.photos/500/300"
+        "https://images.unsplash.com/photo-1692565343875-1245359964d2?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1692565343875-1245359964d2?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       "year": "2021",
       "pricePerDay": "190",
       "fuelType": "Hybrid",
-      "transmissionType": "Otomatik",
+      "transmissionType": "Manuel",
       "capacity": "5"
     },
     {
       "id": 6,
-      "name": "Nissan Altima",
-      "brand": "Nissan",
-      "model": "Altima",
+      "name": "Volkswagen Golf",
+      "brand": "Volkswagen",
+      "model": "Golf",
       "photos": [
-        "https://picsum.photos/500/300",
-        "https://picsum.photos/500/300"
+        "https://images.unsplash.com/photo-1572811298797-9eecadf6cb24?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1572811298797-9eecadf6cb24?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
-      "year": "2023",
-      "pricePerDay": "155",
+      "year": "2021",
+      "pricePerDay": "500",
       "fuelType": "Diesel",
-      "transmissionType": "Manuel",
+      "transmissionType": "Automatic",
       "capacity": "5"
     },
     {
@@ -134,13 +134,58 @@
       "brand": "Toyota",
       "model": "Hilux",
       "photos": [
-        "https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1621968175389-f1a0c0692cdc?q=80&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        "https://images.unsplash.com/photo-1559416523-140ddc3d238c?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1559416523-140ddc3d238c?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
       "year": "2022",
       "pricePerDay": "150",
       "fuelType": "Hybrid",
-      "transmissionType": "Otomatik",
+      "transmissionType": "Manuel",
+      "capacity": "5"
+    },
+    {
+      "id": 8,
+      "name": "Ford Ranger",
+      "brand": "Ford",
+      "model": "Ranger",
+      "photos": [
+        "https://images.unsplash.com/photo-1590053936004-faca6038bfec?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1590053936004-faca6038bfec?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": "2016",
+      "pricePerDay": "650",
+      "fuelType": "Diesel",
+      "transmissionType": "Automatic",
+      "capacity": "5"
+    },
+    {
+      "id": 9,
+      "name": "Range Rover",
+      "brand": "Range",
+      "model": "Rover",
+      "photos": [
+        "https://images.unsplash.com/photo-1563720223185-11003d516935?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1563720223185-11003d516935?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": "2021",
+      "pricePerDay": "1000",
+      "fuelType": "Hybrid",
+      "transmissionType": "Automatic",
+      "capacity": "5"
+    },
+    {
+      "id": 10,
+      "name": "Mercedes Benz",
+      "brand": "Mercedes",
+      "model": "Benz",
+      "photos": [
+        "https://images.unsplash.com/photo-1630596369706-57eaf9ba7cae?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1630596369706-57eaf9ba7cae?&w=500&h=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ],
+      "year": "2022",
+      "pricePerDay": "900",
+      "fuelType": "Gas",
+      "transmissionType": "Automatic",
       "capacity": "5"
     }
   ],
@@ -160,8 +205,10 @@
     "Toyota",
     "Honda",
     "Ford",
-    "Chevrolet",
+    "Audi",
     "Volkswagen",
-    "Nissan"
+    "Nissan",
+    "Range",
+    "Mercedes"
   ]
 }
