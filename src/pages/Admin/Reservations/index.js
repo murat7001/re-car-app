@@ -2,10 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Popconfirm, Table } from 'antd'
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCar, fetchCars } from '@/store/CarSlice/carSlice';
 import ProtectedAdmin from '../ProtectedAdmin';
 import { ToastContainer, toast } from 'react-toastify';
-import { fetchReservations } from '@/store/ReservationsSlice/reservationsSlice';
+import { deleteReservation, fetchReservations } from '@/store/ReservationsSlice/reservationsSlice';
 
 
 function AdminReserv() {
@@ -20,13 +19,13 @@ function AdminReserv() {
 
   const handleDelete = async (id) => {
     try {
-      await dispatch(deleteCar(id));
-      toast.success('Car deleted');
+      await dispatch(deleteReservation(id));
+      toast.success('Reservation completed');
       setTimeout(() => {
-        dispatch(fetchCars());
+        dispatch(fetchReservations());
       }, 2000)
     } catch (error) {
-      toast.error('Car could not be deleted!!!');
+      toast.error('Reservation could not be completed!!!');
     }
   };
 

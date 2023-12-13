@@ -32,6 +32,14 @@ export const saveReservations = createAsyncThunk(
     }
 );
 
+export const deleteReservation = createAsyncThunk(
+    'cars/deleteReservation',
+    async (reservId) => {
+        const response = await axios.delete(`http://localhost:3001/reservations/${reservId}`);
+        return response.data;
+    }
+);
+
 const reservationsSlice = createSlice({
     name: 'reservations',
     initialState,
@@ -62,6 +70,18 @@ const reservationsSlice = createSlice({
             .addCase(saveReservations.rejected, (state, action) => {
                 state.loadingReservations = false;
                 state.error = action.payload;
+            })
+            .addCase(deleteReservation.pending, (state) => {
+                state.loadingReservations = true;
+                state.error = null;
+            })
+            .addCase(deleteReservation.fulfilled, (state, action) => {
+                state.reservations = state.reservations.filter(reservation => reservation.id !== action.payload.id);
+                state.loadingReservations = false;
+            })
+            .addCase(deleteReservation.rejected, (state, action) => {
+                state.loadingReservations = false;
+                state.error = action.error.message;
             });
     },
 });
