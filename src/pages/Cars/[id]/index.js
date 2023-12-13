@@ -82,7 +82,7 @@ const Details = () => {
                     </Typography>
 
 
-                    {user?.role === 'user' && (
+                    {user?.role !== 'admin' && (
                         <Stack sx={{ mt: 'auto' }}>
                             <Button onClick={handleButtonClick} variant='contained'>Rent</Button>
                         </Stack>
