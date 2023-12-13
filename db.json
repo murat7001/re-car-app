@@ -146,24 +146,6 @@
   ],
   "reservations": [
     {
-      "id": 1,
-      "userId": 2,
-      "carId": 1,
-      "startDate": "2023-01-01",
-      "endDate": "2023-01-05",
-      "address": "123 Main St, Cityville",
-      "phone": "555-1234"
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "carId": 2,
-      "startDate": "2023-02-15",
-      "endDate": "2023-02-20",
-      "address": "456 Elm St, Townsville",
-      "phone": "555-5678"
-    },
-    {
       "userId": "user2",
       "carId": "1",
       "address": "adana",
