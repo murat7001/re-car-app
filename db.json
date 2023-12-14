@@ -19,13 +19,13 @@
       "passwordConfirm": "user123"
     },
     {
-      "id": "user2",
       "email": "user2@example.com",
-      "password": "user456",
-      "role": "user",
       "name": "Jane",
       "surname": "Doe",
-      "passwordConfirm": "user456"
+      "password": "user456",
+      "role": "user",
+      "passwordConfirm": "user456",
+      "id": "user2"
     },
     {
       "name": "cagr",

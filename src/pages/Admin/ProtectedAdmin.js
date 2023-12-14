@@ -11,11 +11,11 @@ const ProtectedAdmin = () => {
     const router = useRouter()
     let { loggedIn, user } = useSelector((state) => state.auth);
 
-    // useEffect(() => {
-    //     if (user?.role !== 'admin') {
-    //         router.push('/');
-    //     }
-    // }, [user, router]);
+    useEffect(() => {
+        if (user?.role !== 'admin') {
+            router.push('/');
+        }
+    }, [user, router]);
     return (
         <Box sx={{ flexGrow: 1, width: '30%', margin: 'auto', position: 'sticky', top: 0, zIndex: 1000 }}>
             <AppBar position="static" sx={{ borderRadius: '0px 0px 10px 10px', background: 'white', color: 'black' }}>
