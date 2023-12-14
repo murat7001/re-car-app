@@ -31,19 +31,15 @@ function EditProfile() {
                 role: user.role,
                 passwordConfirm: values.password,
             };
-            console.log('values', updatedValues)
             dispatch(editUser({ id, updatedValues }));
             toast.success('User edited.');
-            router.push('/')
         } catch (error) {
             toast.error('User not edited');
         }
     }
 
 
-    if (loading) {
-        return <Box display={'flex'} justifyContent={'center'}>Loading...</Box>;
-    }
+    
 
 
     return (

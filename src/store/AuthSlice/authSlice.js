@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const initialState = {
     user: null,
@@ -32,7 +34,7 @@ export const registerUser = createAsyncThunk(
             );
             return response;
         } catch (error) {
-            return rejectWithValue(error.response.data.error);
+            rejectWithValue(error.response.data.error);
         }
     }
 );
@@ -49,7 +51,11 @@ export const editUser = createAsyncThunk(
     }
 );
 
-
+const authPersistConfig = {
+    key: 'auth',
+    storage: storage,
+    whitelist: ['user', 'loggedIn'], // Persist edilecek alanları belirtin
+  };
 
 const authSlice = createSlice({
     name: 'auth',
@@ -83,10 +89,23 @@ const authSlice = createSlice({
             .addCase(registerUser.rejected, (state, action) => {
                 state.loggedIn = false;
                 state.loading = false;
-            });
+            })
+            .addCase(editUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(editUser.fulfilled, (state, action) => {
+                state.user = action.payload;
+                state.loggedIn = true
+                state.loading = false;
+            })
+            .addCase(editUser.rejected, (state) => {
+                state.loading = false;
+            })
     },
 });
 
+const persistedAuthReducer = persistReducer(authPersistConfig, authSlice.reducer);
+
 export const { logOutUser, loggedFalse } = authSlice.actions;
 
-export default authSlice.reducer;
+export default persistedAuthReducer;
