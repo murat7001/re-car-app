@@ -2,12 +2,17 @@ import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import DateRange from '@/components/DateRange';
-import validationSchema from './validations';
+import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { saveReservations } from '@/store/ReservationsSlice/reservationsSlice';
 import { resetDate } from '@/store/DateSlice/dateSlice';
 import { ToastContainer, toast } from 'react-toastify';
+
+const validations = yup.object().shape({
+    address: yup.string().required('Address is required'),
+    phone: yup.string().required('Phone is required'),
+});
 
 function Rent() {
     const { startDate, endDate } = useSelector((state) => state.dates);
@@ -24,7 +29,7 @@ function Rent() {
             address: "",
             phone: "",
         },
-        validationSchema,
+        validationSchema: validations,
         onSubmit: async (values, bag) => {
             const updatedValues = {
                 ...values,
@@ -47,6 +52,12 @@ function Rent() {
             router.events.off('routeChangeComplete', handleRouteChange);
         };
     }, [router.events, dispatch]);
+
+
+
+
+
+
 
     return (
         <Box mt={10} display="flex" justifyContent="center" alignItems="center">

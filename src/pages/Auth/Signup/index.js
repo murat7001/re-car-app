@@ -1,11 +1,24 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
-import validationSchema from './validations';
+import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '@/store/AuthSlice/authSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+
+const validations = yup.object().shape({
+    name: yup.string().required('Required field.'),
+    surname: yup.string().required('Required field.'),
+    id: yup.string().required('Required field.'),
+    email: yup.string().email('Enter a valid email.').required('Required field.'),
+    password: yup.string().min(5, 'The password must be at least 5 characters.').required('Required field.'),
+    passwordConfirm: yup
+        .string()
+        .min(5, 'The password must be at least 5 characters.')
+        .oneOf([yup.ref('password')], 'Passwords do not match.')
+        .required('Required field.'),
+});
 
 function SignUp() {
     const dispatch = useDispatch()
@@ -20,7 +33,7 @@ function SignUp() {
             passwordConfirm: '',
             role: 'user'
         },
-        validationSchema,
+        validationSchema: validations,
         onSubmit: async (values) => {
             try {
                 const data = await dispatch(registerUser(values))
@@ -37,6 +50,8 @@ function SignUp() {
             }
         },
     });
+
+
 
     return (
         <Box mt={3} display="flex" justifyContent="center" alignItems="center">

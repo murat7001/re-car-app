@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { editUser } from '@/store/AuthSlice/authSlice';
-import validationSchema from './validations'
+import * as Yup from 'yup';
+
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -39,7 +40,14 @@ function EditProfile() {
     }
 
 
-    
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    name: Yup.string().required('Name is required'),
+    surname: Yup.string().required('Surname is required'),
+    password: Yup.string().min(5, 'Password must be at least 5 characters').required('Password is required'),
+});
+
 
 
     return (

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
-import validationSchema from './validations'
+import * as yup from 'yup';
 import { fetchUser, loggedFalse } from '@/store/AuthSlice/authSlice';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const validations = yup.object().shape({
+    userName: yup.string().required('Required field.'),
+    password: yup.string().min(5, 'The password must be at least 5 characters.').required('Required field.'),
+});
 
 function Signin() {
     const dispatch = useDispatch()
@@ -17,11 +22,11 @@ function Signin() {
             userName: '',
             password: '',
         },
-        validationSchema,
+        validationSchema: validations,
         onSubmit: async (values) => {
             try {
                 const data = await dispatch(fetchUser(values));
-                
+
                 if (data && data.payload.password !== values.password) {
                     toast.error('Wrong paassword!!!');
                     dispatch(loggedFalse())
@@ -39,9 +44,12 @@ function Signin() {
         },
     });
 
+
+    
+    
     return (
-        <Box  mt={10} display="flex" justifyContent="center" alignItems="center">
-            <Stack sx={{background:'#F3F3F3', padding:'30px',borderRadius:'30px'}} width="400px" spacing={4}>
+        <Box mt={10} display="flex" justifyContent="center" alignItems="center">
+            <Stack sx={{ background: '#F3F3F3', padding: '30px', borderRadius: '30px' }} width="400px" spacing={4}>
                 <Typography variant="h4" textAlign="center">
                     Sign In
                 </Typography>
@@ -52,15 +60,15 @@ function Signin() {
                     <FormControl fullWidth>
                         <FormLabel>Username</FormLabel>
                         <TextField
-                            name="userName" 
+                            name="userName"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.userName} 
+                            value={formik.values.userName}
                             error={formik.touched.userName && Boolean(formik.errors.userName)}
                             autoFocus
                         />
 
-                        {formik.touched.userName && formik.errors.userName && ( 
+                        {formik.touched.userName && formik.errors.userName && (
                             <FormHelperText error>{formik.errors.userName}</FormHelperText>
                         )}
                     </FormControl>
