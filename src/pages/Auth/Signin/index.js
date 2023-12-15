@@ -3,14 +3,13 @@ import { useFormik } from 'formik';
 import { Alert, Box, Button, FormControl, FormHelperText, FormLabel, Stack, TextField, Typography } from '@mui/material';
 import validationSchema from './validations'
 import { fetchUser, loggedFalse } from '@/store/AuthSlice/authSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Signin() {
     const dispatch = useDispatch()
-    let { loggedIn, user } = useSelector((state) => state.auth);
     const router = useRouter()
 
     const formik = useFormik({

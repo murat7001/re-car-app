@@ -2,11 +2,8 @@ import React, { useEffect } from 'react';
 import { Stack, Box, Typography, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import CardCmp from '@/components/CardCmp';
 import ImageGallery from 'react-image-gallery';
 import { fetchCarDetails } from '@/store/CarSlice/carSlice';
-import DateRange from '@/components/DateRange';
-import Link from 'next/link';
 
 const Details = () => {
     const router = useRouter();

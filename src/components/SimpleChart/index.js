@@ -1,7 +1,5 @@
-import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { Box } from '@mui/material';
-import { Flex } from 'antd';
 
 export default function SimpleCharts({ users, reserv, cars }) {
     return (

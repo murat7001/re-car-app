@@ -3,7 +3,7 @@ import { FieldArray, Formik } from 'formik'
 import { Box, Button, FormControl, TextField, Typography } from '@mui/material';
 import validationSchema from './validations'
 import ProtectedAdmin from '../../ProtectedAdmin';
-import { addNewCar, editCar, fetchCarDetails } from '@/store/CarSlice/carSlice';
+import { editCar, fetchCarDetails } from '@/store/CarSlice/carSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from 'next/router';

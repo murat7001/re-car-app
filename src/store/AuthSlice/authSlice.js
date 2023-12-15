@@ -67,7 +67,7 @@ export const fetchAllUsers = createAsyncThunk(
 const authPersistConfig = {
     key: 'auth',
     storage: storage,
-    whitelist: ['user', 'loggedIn'], // Persist edilecek alanları belirtin
+    whitelist: ['user', 'loggedIn'],
   };
 
 const authSlice = createSlice({
