@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+const BASE_ENDPOINT = "http://localhost:3001";
+const BASE_ENDPOINT2 = "https://json-server-7qt7.onrender.com";
 const initialState = {
     cars: [],
     loadingCars: false,
@@ -12,7 +13,7 @@ const initialState = {
 export const fetchCars = createAsyncThunk(
     'cars/fetchCars',
     async () => {
-        const response = await axios.get("http://localhost:3001/cars");
+        const response = await axios.get(`${BASE_ENDPOINT2}/cars`);
         return response.data;
     }
 );
@@ -22,7 +23,7 @@ export const fetchCarDetails = createAsyncThunk(
     'cars/fetchCarDetails',
     async (id, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:3001/cars/${id}`)
+            const response = await axios.get(`${BASE_ENDPOINT2}/cars/${id}`)
             return response.data;
         } catch (error) {
             rejectWithValue(error.response.data.error)
@@ -34,7 +35,7 @@ export const fetchCarDetails = createAsyncThunk(
 export const searchCars = createAsyncThunk(
     'cars/searchCars',
     async (search) => {
-        const response = await axios.get(`http://localhost:3001/cars?q=${search}`);
+        const response = await axios.get(`${BASE_ENDPOINT2}/cars?q=${search}`);
         return response.data;
     }
 );
@@ -42,7 +43,7 @@ export const searchCars = createAsyncThunk(
 export const fetchCarByCategory = createAsyncThunk(
     'cars/fetchCarByCategory',
     async (brand) => {
-        const response = await axios.get(`http://localhost:3001/cars?brand=${brand}`)
+        const response = await axios.get(`${BASE_ENDPOINT2}/cars?brand=${brand}`)
         return response.data;
     }
 );
@@ -50,7 +51,7 @@ export const fetchCarByCategory = createAsyncThunk(
 export const addNewCar = createAsyncThunk(
     'cars/addNewCar',
     async (newCarData) => {
-        const response = await axios.post("http://localhost:3001/cars", newCarData);
+        const response = await axios.post(`${BASE_ENDPOINT2}/cars`, newCarData);
         return response.data;
     }
 );
@@ -58,7 +59,7 @@ export const addNewCar = createAsyncThunk(
 export const deleteCar = createAsyncThunk(
     'cars/deleteCar',
     async (carId) => {
-        const response = await axios.delete(`http://localhost:3001/cars/${carId}`);
+        const response = await axios.delete(`${BASE_ENDPOINT2}/cars/${carId}`);
         return response.data;
     }
 );
@@ -66,7 +67,7 @@ export const deleteCar = createAsyncThunk(
 export const editCar = createAsyncThunk(
     'cars/editCar',
     async ({ id, values }) => {
-        const response = await axios.put(`http://localhost:3001/cars/${id}`, values);
+        const response = await axios.put(`${BASE_ENDPOINT2}/cars/${id}`, values);
         return response.data;
     }
 );

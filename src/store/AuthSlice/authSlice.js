@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
+const BASE_ENDPOINT = "http://localhost:3001";
+const BASE_ENDPOINT2 = "https://json-server-7qt7.onrender.com";
 const initialState = {
     user: null,
     loggedIn: false,
@@ -15,7 +16,7 @@ export const fetchUser = createAsyncThunk(
     async (input, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                `http://localhost:3001/users/${input.userName}`
+                `${BASE_ENDPOINT2}/users/${input.userName}`
             );
 
             return response.data
@@ -30,7 +31,7 @@ export const registerUser = createAsyncThunk(
     async (input, { rejectWithValue }) => {
         try {
             const response = await axios.post(
-                `http://localhost:3001/users`,
+                `${BASE_ENDPOINT2}/users`,
                 input
             );
             return response;
@@ -44,7 +45,7 @@ export const editUser = createAsyncThunk(
     'auth/editUser',
     async ({ id, updatedValues }) => {
         try {
-            const response = await axios.put(`http://localhost:3001/users/${id}`, updatedValues);
+            const response = await axios.put(`${BASE_ENDPOINT2}/users/${id}`, updatedValues);
             return response.data;
         } catch (error) {
             throw error;
@@ -56,7 +57,7 @@ export const fetchAllUsers = createAsyncThunk(
     'user/fetchAllUsers',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:3001/users`);
+            const response = await axios.get(`${BASE_ENDPOINT2}/users`);
             return response.data;
         } catch (error) {
             rejectWithValue(error.response.data.error);

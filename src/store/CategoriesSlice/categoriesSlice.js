@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+const BASE_ENDPOINT = "http://localhost:3001";
+const BASE_ENDPOINT2 = "https://json-server-7qt7.onrender.com";
 
 const initialState = {
     categories: [],
@@ -12,7 +14,7 @@ export const fetchCategories = createAsyncThunk(
     'categories/fetchCategories',
     async () => {
         const response = await axios.get(
-            `http://localhost:3001/categories`
+            `${BASE_ENDPOINT2}/categories`
         );
         return response.data;
     }

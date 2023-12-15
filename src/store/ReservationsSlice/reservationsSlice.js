@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+const BASE_ENDPOINT = "http://localhost:3001";
+const BASE_ENDPOINT2 = "https://json-server-7qt7.onrender.com";
 
 const initialState = {
     reservations: [],
@@ -11,7 +13,7 @@ export const fetchReservations = createAsyncThunk(
     'reservations/fetchReservations',
     async () => {
         const response = await axios.get(
-            `http://localhost:3001/reservations`
+            `${BASE_ENDPOINT2}/reservations`
         );
         return response.data;
     }
@@ -22,7 +24,7 @@ export const saveReservations = createAsyncThunk(
     async (input, { rejectWithValue }) => {
         try {
             const response = await axios.post(
-                `http://localhost:3001/reservations`,
+                `${BASE_ENDPOINT2}/reservations`,
                 input
             );
             return response;
@@ -35,7 +37,7 @@ export const saveReservations = createAsyncThunk(
 export const deleteReservation = createAsyncThunk(
     'cars/deleteReservation',
     async (reservId) => {
-        const response = await axios.delete(`http://localhost:3001/reservations/${reservId}`);
+        const response = await axios.delete(`${BASE_ENDPOINT2}/reservations/${reservId}`);
         return response.data;
     }
 );
