@@ -7,6 +7,7 @@ const initialState = {
     user: null,
     loggedIn: false,
     loading: false,
+    allUsers:[],
 };
 
 export const fetchUser = createAsyncThunk(
@@ -47,6 +48,18 @@ export const editUser = createAsyncThunk(
             return response.data;
         } catch (error) {
             throw error;
+        }
+    }
+);
+
+export const fetchAllUsers = createAsyncThunk(
+    'user/fetchAllUsers',
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`http://localhost:3001/users`);
+            return response.data;
+        } catch (error) {
+            rejectWithValue(error.response.data.error);
         }
     }
 );
@@ -101,6 +114,16 @@ const authSlice = createSlice({
             .addCase(editUser.rejected, (state) => {
                 state.loading = false;
             })
+            .addCase(fetchAllUsers.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchAllUsers.fulfilled, (state, action) => {
+                state.loading = false;
+                state.allUsers = action.payload;
+            })
+            .addCase(fetchAllUsers.rejected, (state) => {
+                state.loading = false;
+            });
     },
 });
 
