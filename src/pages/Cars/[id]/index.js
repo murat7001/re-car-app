@@ -44,7 +44,7 @@ const Details = () => {
         >
             <Box
                 sx={{
-                    maxWidth: '800px',
+                    maxWidth: '900px',
                     width: '100%',
                     display: 'flex',
                     justifyContent: 'space-around',

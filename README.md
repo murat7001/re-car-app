@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Used Tools
 - Material UI
 - Antd
-- db.json
+- Json-server
 - Axios
 - Redux Toolkit
 - moment
