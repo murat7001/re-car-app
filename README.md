@@ -30,3 +30,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - yup
 - react-toastify
 - redux-persist
+
+## HOME
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/home.png)
+
+## CATEGORIES
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/categories.png)
+
+## SEARCH
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/search.png)
+
+## LOGIN
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/login.png)
+
+## REGISTER
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/register.png)
+
+## PROFILE
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/profile.png)
+
+## DETAILS
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/details.png)
+
+## ADMIN HOME
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/adminHome.png)
+
+## ADMIN DETAILS
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/adminDetails.png)
+
+## RESERVATIONS
+![](https://github.com/murat7001/re-car-app/blob/master/public/images/reservations.png)
