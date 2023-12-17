@@ -19,7 +19,10 @@ npm run json
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Used Tools
+## LIVE
+If you want, you can access the live version of the project [here](https://re-car-app.vercel.app/).
+
+## USED TOOLS
 - Material UI
 - Antd
 - Json-server
