@@ -31,11 +31,8 @@ const Details = () => {
     return (
         <Stack
             sx={{
-                display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
-                height: 'calc(100vh - 64px)',
-                justifyContent: 'center',
+                marginTop: { xs: '20px', md: '100px' }
             }}
         >
             {loadingCarsDetails ? (
@@ -48,21 +45,21 @@ const Details = () => {
                         display: 'flex',
                         justifyContent: 'space-around',
                         background: '#F3F3F3',
-                        padding: '50px',
+                        padding: {xs:'20px', md:'50px'},
                         borderRadius: '30px',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        alignItems: 'center',
                     }}
                 >
                     <Box
                         sx={{
                             height: '300px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
                         }}
                     >
                         <ImageGallery showPlayButton={false} items={images} />
                     </Box>
-                    <Stack>
+
+                    <Stack sx={{textAlign:{xs: 'center',md:'start'} }} >
                         <Typography variant="h4">{carsDetails.name}</Typography>
                         <Typography
                             sx={{ borderBottom: '1px solid #ccc', paddingBottom: '1px', marginTop: '20px' }}
@@ -86,8 +83,8 @@ const Details = () => {
                         </Typography>
 
                         {user?.role !== 'admin' && (
-                            <Stack sx={{ mt: 'auto' }}>
-                                <Button onClick={handleButtonClick} variant="contained">
+                            <Stack sx={{ mt: '20px' }}>
+                                <Button onClick={handleButtonClick} variant="contained" fullWidth>
                                     Rent
                                 </Button>
                             </Stack>

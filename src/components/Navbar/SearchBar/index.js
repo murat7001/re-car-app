@@ -17,7 +17,7 @@ export default function SearchBar() {
     }, [search]);
 
     return (
-        <Search>
+        <Search sx={{display:{xs:'none', md:'flex'}}}>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>

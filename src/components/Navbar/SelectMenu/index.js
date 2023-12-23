@@ -46,7 +46,7 @@ export default function SelectMenu() {
 
     return (
         <div>
-            <FormControl sx={{ m: 1, width: 300 }}>
+            <FormControl sx={{ m: 1, width:{xs:'180px', md:'300px'} }}>
                 <InputLabel id="demo-multiple-categories-label">Categories</InputLabel>
                 <Select
                     labelId="demo-multiple-categories-label"
